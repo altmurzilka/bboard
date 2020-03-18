@@ -11,6 +11,8 @@ class Bb(models.Model):
     published = models.DateTimeField(
         auto_now_add=True, db_index=True, verbose_name='Published')
 
+    objects = models.Manager()
+
 
 class Meta:
     verbose_name_plural = 'Notes'
