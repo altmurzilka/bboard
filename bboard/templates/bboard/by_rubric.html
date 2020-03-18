@@ -10,7 +10,7 @@
     <h1>News</h1>
     <h2>Rubric: {{ current_rubric.name }}</h2>
     <div>
-        <a href="/bboard/">Main</a>
+        <a href="{% url 'index' %}">Main</a>
         {% for rubric in rubrics %}
         <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
         {% endfor %}
