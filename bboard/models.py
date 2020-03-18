@@ -8,8 +8,9 @@ class Bb(models.Model):
     content = models.TextField(null=True, blank=True, verbose_name="Description")
     price = models.FloatField(null=True, blank=True, verbose_name='Price')
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Published')
-
-    # objects = models.Manager()
+    rubric = models.ForeignKey('Rubric', null = True, on_delete=models.PROTECT, verbose_name ='Heading')
+    
+    objects = models.Manager()
     class Meta:
         verbose_name_plural = 'Notes'
         verbose_name = 'Note'
@@ -17,6 +18,9 @@ class Bb(models.Model):
 
 class Rubric(models.Model):
     name = models.CharField(max_length=20, db_index=True, verbose_name='Name')
+
+    def __str__(self):
+        return self.name
     
     class Meta:
         verbose_name_plural = 'Headings'
