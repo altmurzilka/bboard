@@ -9,7 +9,7 @@ class Bb(models.Model):
     price = models.FloatField(null=True, blank=True, verbose_name='Price')
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Published')
     rubric = models.ForeignKey('Rubric', null = True, on_delete=models.PROTECT, verbose_name ='Heading')
-    
+
     objects = models.Manager()
     class Meta:
         verbose_name_plural = 'Notes'
@@ -21,6 +21,8 @@ class Rubric(models.Model):
 
     def __str__(self):
         return self.name
+
+    objects = models.Manager()
     
     class Meta:
         verbose_name_plural = 'Headings'
